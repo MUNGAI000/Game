@@ -1,1 +1,13 @@
-8464771296:AAFoBqpNty8c4YndrAZQLgu-Dtv4BNRI3tA
+
+import telegram
+from telegram.ext import Updater, CommandHandler
+
+TOKEN = '8464771296:AAFoBqpNty8c4YndrAZQLgu-Dtv4BNRI3tA'
+
+def start(update, context):
+    context.bot.send_message(chat_id=update.effective_user.id, text='Hello! Watch this video: https://www.tiktok.com/@username/video/123456789')
+
+updater = Updater(TOKEN, use_context=True)
+dispatcher = updater.dispatcher
+dispatcher.add_handler(CommandHandler('start', start))
+updater.start_polling()
