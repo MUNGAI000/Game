@@ -2,6 +2,23 @@ import mpesa
 
 consumer_key = "skJ7v36t4v13SV7T154wtI8yzzAIAabYNQZnRalxdbMvGKpq"
 consumer_secret = "XcTU017mQGHXwyVNcAluM0dctKo92I4pwXXBCaJHrcQofGHA0u0BbWLZx5gzaaop"
+# Generate access token
+access_token = mpesa_api.authenticate()
+
+# Initiate payment (example)
+payment_response = mpesa_api.list_payment(
+    BusinessShortCode="YOUR_SHORTCODE",
+    Password="YOUR_PASSWORD",
+    Timestamp="TIMESTAMP",
+    TransactionType="CustomerPayBillOnline",
+    Amount=100,
+    PartyA="CUSTOMER_PHONE_NUMBER",
+    PartyB="YOUR_SHORTCODE",
+    PhoneNumber="CUSTOMER_PHONE_NUMBER",
+    CallBackURL="YOUR_CALLBACK_URL",
+    AccountReference="ACCOUNT_REFERENCE",
+    TransactionDesc="DESCRIPTION"
+)
 import telegram
 from telegram.ext import Updater, CommandHandler
 
