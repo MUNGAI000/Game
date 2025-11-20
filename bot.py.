@@ -1,4 +1,7 @@
 import mpesa
+
+consumer_key = "skJ7v36t4v13SV7T154wtI8yzzAIAabYNQZnRalxdbMvGKpq"
+consumer_secret = "XcTU017mQGHXwyVNcAluM0dctKo92I4pwXXBCaJHrcQofGHA0u0BbWLZx5gzaaop"
 import telegram
 from telegram.ext import Updater, CommandHandler
 
