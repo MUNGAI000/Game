@@ -7,16 +7,16 @@ access_token = mpesa_api.authenticate()
 
 # Initiate payment (example)
 payment_response = mpesa_api.list_payment(
-    BusinessShortCode="YOUR_SHORTCODE",
-    Password="YOUR_PASSWORD",
-    Timestamp="TIMESTAMP",
-    TransactionType="CustomerPayBillOnline",
-    Amount=100,
-    PartyA="CUSTOMER_PHONE_NUMBER",
-    PartyB="YOUR_SHORTCODE",
-    PhoneNumber="CUSTOMER_PHONE_NUMBER",
+    BusinessShortCode="8750991",
+    Password="Munga#254254",
+    Timestamp="20251120103030",
+    TransactionType="Customerbuygoodsonline",
+    Amount=500,
+    PartyA="phone-number",
+    PartyB="8750991",
+    PhoneNumber="phone-number",
     CallBackURL="YOUR_CALLBACK_URL",
-    AccountReference="ACCOUNT_REFERENCE",
+    AccountReference="payment-for-service",
     TransactionDesc="DESCRIPTION"
 )
 import telegram
