@@ -26,7 +26,34 @@ TOKEN = '8464771296:AAFoBqpNty8c4YndrAZQLgu-Dtv4BNRI3tA'
 
 def start(update, context):
     context.bot.send_message(chat_id=update.effective_user.id, text='Hello! welcome to prosperous market Watch this video: https://vm.tiktok.com/ZMH3be3UNkXSJ-lrzh9/')
+def register_user(update, context):
+    # Get user input
+    name = update.message.text  # Replace with your actual input field
+    email = context.user_data['email']  # Replace with your actual input field
+    phone_number = context.user_data['phone_number']  # Replace with your actual input field
+    telegram_username = update.effective_user.username
 
+    # Store user data in a database
+    # Replace with your actual database connection code
+    import sqlite3
+    conn = sqlite3.connect('your_database.db')
+    cursor = conn.cursor()
+
+    # Create a table to store user data if it doesn't exist
+    # Replace with your actual table schema
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users
+        (id INTEGER PRIMARY KEY, name TEXT, email TEXT, phone_number TEXT, telegram_username TEXT, payment_status TEXT)
+    ''')
+
+    # Insert user data into the table
+    cursor.execute('INSERT INTO users (name, email, phone_number, telegram_username, payment_status) VALUES (?, ?, ?, ?, ?)',
+                  (name, email, phone_number, telegram_username, 'pending'))
+    conn.commit()
+    conn.close()
+
+    # Send a message to the user to confirm registration
+    update.message.reply_text('Registration successful! Please complete payment to access our TikTok videos.')
 updater = Updater(TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler('start', start))
