@@ -25,7 +25,7 @@ from telegram.ext import Updater, CommandHandler
 TOKEN = '8464771296:AAFoBqpNty8c4YndrAZQLgu-Dtv4BNRI3tA'
 
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_user.id, text='Hello! welcome to prosperous market Watch this video: https://vm.tiktok.com/ZMH3be3UNkXSJ-lrzh9/')
+    context.bot.send_message(chat_id=update.effective_user.id, text='Hello! welcome to prosperous network Watch this video: https://vm.tiktok.com/ZMH3be3UNkXSJ-lrzh9/')
 def register_user(update, context):
     # Get user input
     name = update.message.text  # Replace with your actual input field
